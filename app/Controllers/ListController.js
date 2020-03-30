@@ -26,7 +26,7 @@ export default class ListController {
 
     _listService.create(newList)
   _drawLists()
-  // formData.reset()
+  formData.reset()
 }
 
   delete(listId) {
@@ -35,19 +35,17 @@ export default class ListController {
 }
 
 
-addTask(event) {
+addTask(event, listID) {
   event.preventDefault()
   let formData = event.target
-  let newTaskData = {
-    title: formData.listName.value
-  }
-  _listService.addTask(newTaskData)
+  let newTaskData = formData.taskName.value
+  _listService.addTask(newTaskData, listID)
   _drawLists()
-
+  formData.reset()
 }
 
-delete(task) {
-  _listService.delete(task)
+deleteTask(task, listID) {
+  _listService.deleteTask(task, listID)
   _drawLists()
 }
 

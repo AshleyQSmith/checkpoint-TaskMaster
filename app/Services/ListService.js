@@ -21,13 +21,18 @@ class ListService {
 
 // remove by index not id
 // don't make the tasks an object - keep as string
-  addTask(newTaskData) {
-    let newTask = new Task (newTaskData)
-    let task = _store.State.lists.find(list => list.id == listId)
-    list.taks.push(newTask)
+  addTask(newTaskData, listID) {
+    let list = _store.State.lists.find(list => list.id == listID)
+    list.tasks.push(newTaskData)
     _store.saveState()
   }
 
+  deleteTask(task, listID) {
+    let list = _store.State.lists.find(list => list.id == listID)
+    let deletedTask = list.tasks.find(list => list.tasks == task)
+    list.tasks.splice(task)
+    _store.saveState()
+  }
 
 }
 
