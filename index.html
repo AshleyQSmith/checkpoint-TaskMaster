@@ -28,23 +28,21 @@
     <main>
       <container-fluid>
         <div class="row justify-content-center">
-          <!-- add new task list section -->
           <div class="col-12 py-3 text-center bg-secondary d-flex justify-content-center">
 
             <form class="form-inline" onsubmit="app.listController.create(event)">
               <input type="text" class="form-control mb-2 mr-sm-2" name="listName" placeholder="New Task List Name">
             <button type="submit"  class="btn btn-primary mb-2">Submit</button>
             </form>
-<!-- update onclick for new task list form -->
           </div>
         </div>
 
 
-        <div class="row justify-content-center bg-secondary py-4 ">
+        <div class="row justify-content-center bg-secondary py-4 fullBG">
           <div class="col-md-12 col-4 d-flex " id="lists"></div>
         </div>
 
-
+        
 
 
       </container-fluid>
