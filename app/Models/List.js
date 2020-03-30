@@ -22,24 +22,29 @@ export default class List {
           <input type="text" name="taskName" class="form-control" placeholder="Add task...">
         </div>
       </form>
-
-      <div class="form-check">
-      <button type="button" class="close text-danger" onclick="app.listController.deleteTask('${this.tasks}, ${this.id}')">
-    <span>&times;</span>
-    </button>
-      <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-      <label class="form-check-label" for="defaultCheck1">
-      ${this.tasks}
-      </label>
-      </div>
-
-
-
+       ${this.TaskTemplate()} 
     </div>
     `
   }
 
+  TaskTemplate(){
+    let template = ''
+    this.tasks.forEach(newTask => {
+      template += 
+      `<div class="form-check">
+    <button type="button" class="close text-danger" onclick="app.listController.deleteTask('${newTask}', '${this.id}')">
+  <span>&times;</span>
+  </button>
+    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
+    <label class="form-check-label" for="defaultCheck1">
+    ${newTask}
+    </label>
+    </div>`
+    });
+    return template 
+    
+  }
+
  
  }
-
 

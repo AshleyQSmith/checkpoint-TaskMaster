@@ -33,9 +33,10 @@ class ListService {
   deleteTask(task, listID) {
     let del = confirm("Confirm Delete");
     if (del == true) {
+      console.log(listID)
     let list = _store.State.lists.find(list => list.id == listID)
     let deletedTask = list.tasks.find(list => list.tasks == task)
-    // list.tasks.splice(task)
+    list.tasks.splice(deletedTask, 1)
     _store.saveState()
     }
   }
